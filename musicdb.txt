@@ -1,0 +1,4 @@
+CREATE TABLE artists (id serial primary key, name_art varchar(40) not Null);
+CREATE TABLE albums (id serial primary key, name_album varchar(20) not Null, release_year integer, id_art integer references artists(id));
+CREATE TABLE tracks (id serial primary key, name_track varchar(40) not Null, duration integer check(duration > 0), id_album integer references albums(id));
+CREATE TABLE genres (id serial primary key, name_genre varchar(20) not Null, id_art integer references artists(id));
